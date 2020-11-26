@@ -1,5 +1,5 @@
 # lsport
-基于nodejs查看本机端口占用工具
+基于nodejs查看本机端口占用的命令行工具
 ## 安装
 npm install wmz46/lsport -g
 ## 卸载
