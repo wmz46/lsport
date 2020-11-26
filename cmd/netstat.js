@@ -45,7 +45,7 @@ var netstat = function (port, showCmd, onlyTCP, onlyUDP) {
 
             }
             arr = arr.sort(function (obj1, obj2) {
-                var val1 = parseInt(obj1.portcl);
+                var val1 = parseInt(obj1.port);
                 var val2 = parseInt(obj2.port);
                 if (val1 < val2) {
                     return -1;
