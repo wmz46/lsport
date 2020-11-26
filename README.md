@@ -1,10 +1,10 @@
 # lsport
 基于nodejs查看本机端口占用的命令行工具
-## 安装
+## 一、安装
 npm install wmz46/lsport -g
-## 卸载
+## 二、卸载
 npm uninstall lsport -g
-## 使用
+## 三、使用
 ```cmd
 #查询所有本机所有端口占用
 lsport 
@@ -22,7 +22,7 @@ lsport -p 80
 lsport -p 80 -c
 
 ```
-## 原理
+## 四、原理
 原理很简单就是调用cmd命令netstat和wmic process，并将结果进行整合输出。
 
 那为什么不直接用cmd原生命令行？
@@ -30,7 +30,7 @@ lsport -p 80 -c
 - 2.原生的语法过于复杂，我记不住。
 - 3.我又不是为了让新手觉得我牛逼才敲一堆命令行的人。
 
-## 为什么用nodejs
+## 五、为什么用nodejs
 - 1.不需要额外的编译打包
 - 2.用nodejs可以方便的获取和执行程序。
 - 3.用nodejs写命令行简单
