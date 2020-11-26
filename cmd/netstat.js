@@ -40,10 +40,22 @@ var netstat = function (port, showCmd, onlyTCP, onlyUDP) {
                     commandline = temp.substring(idx);
                     processes[tempR[3]] = [name, commandline];
                 }
-                arr.push(tempR[1] + '   ' + rightPad(tempR[2], 5) + '     ' + rightPad(name, 30) + '   ' + rightPad(tempR[3], 5) + (showCmd ? '  ' + commandline : ''))
+
+                var line = tempR[1] + '   ' + rightPad(tempR[2], 5) + '     ' + rightPad(name, 30) + '   ' + rightPad(tempR[3], 5) + (showCmd ? '  ' + commandline : '');
+                arr.push({line:line,port:tempR[2]});
 
             }
-            resolve(arr.join('\r\n'))
+            resolve(arr.sort(function (obj1, obj2) {
+                var val1 = parseInt(obj1.port);
+                var val2 = parseInt(obj2.port);
+                if (val1 < val2) {
+                    return -1;
+                } else if (val1 > val2 ){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }).map(m=>m.line).join('\r\n'))
         })
     });
 
