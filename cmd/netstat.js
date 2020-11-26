@@ -20,7 +20,6 @@ var netstat = function (port, showCmd, onlyTCP, onlyUDP) {
             var reg = new RegExp('(TCP|UDP)    \\d+\\.\\d+\\.\\d+\\.\\d+:(\\d+).*?(\\d+)\\r\\n', 'g');
             var arr = [];
             var processes = {};
-            arr.push('协议  端口      映像名称                         PID' + (showCmd ? '      命令行' : ''))
             while (tempR = reg.exec(info)) {
                 if (port && port != tempR[2]) {
                     continue;
@@ -45,8 +44,8 @@ var netstat = function (port, showCmd, onlyTCP, onlyUDP) {
                 arr.push({line:line,port:tempR[2]});
 
             }
-            resolve(arr.sort(function (obj1, obj2) {
-                var val1 = parseInt(obj1.port);
+            arr = arr.sort(function (obj1, obj2) {
+                var val1 = parseInt(obj1.portcl);
                 var val2 = parseInt(obj2.port);
                 if (val1 < val2) {
                     return -1;
@@ -55,7 +54,9 @@ var netstat = function (port, showCmd, onlyTCP, onlyUDP) {
                 } else {
                     return 0;
                 }
-            }).map(m=>m.line).join('\r\n'))
+            }).map(m=>m.line)
+            arr.unshift('协议  端口      映像名称                         PID' + (showCmd ? '      命令行' : ''))
+            resolve(arr.join('\r\n'))
         })
     });
 
