@@ -1,11 +1,16 @@
 # lsport
 基于nodejs查看本机端口占用的命令行工具
 ## 一、安装
+```shell
 npm install wmz46/lsport -g
+#或者
+cnpm install wmz46/lsport -g
+
+```
 ## 二、卸载
 npm uninstall lsport -g
 ## 三、使用
-```cmd
+```shell
 #查询所有本机所有端口占用
 lsport 
 
