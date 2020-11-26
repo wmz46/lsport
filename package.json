@@ -1,0 +1,18 @@
+{
+  "name": "lsport",
+  "author": "wangmianzhe",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "iconv-lite": "^0.6.2"
+  },
+  "bin": {
+    "lsport": "./index.js"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "description": "查看本机端口占用工具"
+}
